@@ -82,7 +82,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_arrow_up"
-                        android:tint="@color/income_green"
+                        app:tint="@color/income_green"
                         tools:ignore="UseAppTint" />
 
                     <TextView
@@ -130,7 +130,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_arrow_down"
-                        android:tint="@color/expense_red"
+                        app:tint="@color/expense_red"
                         tools:ignore="UseAppTint" />
 
                     <TextView
@@ -170,7 +170,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_summary" />
 
-    <!-- 5. Transactions List -->
+    <!-- 5. Transactions List (Constrained to Bottom Nav) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecentTransactions"
         android:layout_width="match_parent"
@@ -178,11 +178,11 @@
         android:layout_marginTop="12dp"
         android:clipToPadding="false"
         android:paddingBottom="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintTop_toBottomOf="@id/tv_label_recent"
         tools:listitem="@layout/item_transaction" />
 
-    <!-- 6. FAB (Add Button) -->
+    <!-- 6. FAB (Add Button) - Moved above Bottom Nav -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
         android:layout_width="wrap_content"
@@ -194,11 +194,24 @@
         android:src="@drawable/ic_add"
         app:borderWidth="0dp"
         app:elevation="6dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@android:color/white" />
 
-    <!-- Hidden Chart (Required by specs, but hidden for this design) -->
+    <!-- 7. Bottom Navigation Bar (NEW) -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:elevation="16dp"
+        app:itemIconTint="@color/selector_nav_item"
+        app:itemTextColor="@color/selector_nav_item"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <!-- Hidden Chart -->
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chartIncomeExpense"
         android:layout_width="0dp"
