@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinancialController">
         <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".SearchFilter"
+            android:exported="false" />
+        <activity
             android:name=".Budgets"
             android:exported="false" />
         <activity
