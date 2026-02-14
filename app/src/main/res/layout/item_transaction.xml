@@ -5,81 +5,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="24dp"
-    android:layout_marginEnd="24dp"
-    android:layout_marginBottom="12dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="2dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="22dp"
+    app:cardElevation="4dp"
     app:cardBackgroundColor="@android:color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp">
 
-        <!-- Category Icon Container -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_icon_bg"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="#F2F4F8"
+        <!-- 1. Soft Circular Icon Background -->
+        <View
+            android:id="@+id/view_icon_bg"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_circle_soft_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/iv_category_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/cd_category_icon"
-                app:tint="@color/kings_blue"
-                tools:ignore="UseAppTint"
-                tools:src="@drawable/ic_launcher_foreground" />
-        </androidx.cardview.widget.CardView>
+        <!-- 2. The Icon Itself -->
+        <ImageView
+            android:id="@+id/iv_category_icon"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:contentDescription="@string/cd_category_icon"
+            app:tint="@color/kings_blue"
+            app:layout_constraintBottom_toBottomOf="@id/view_icon_bg"
+            app:layout_constraintEnd_toEndOf="@id/view_icon_bg"
+            app:layout_constraintStart_toStartOf="@id/view_icon_bg"
+            app:layout_constraintTop_toTopOf="@id/view_icon_bg"
+            tools:src="@drawable/ic_launcher_foreground" />
 
-        <!-- Category Name / Note -->
+        <!-- 3. Category Title -->
         <TextView
             android:id="@+id/tv_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
-            android:textColor="#212121"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#2D3142"
+            android:textSize="17sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_date"
             app:layout_constraintEnd_toStartOf="@+id/tv_amount"
-            app:layout_constraintStart_toEndOf="@+id/cv_icon_bg"
+            app:layout_constraintStart_toEndOf="@+id/view_icon_bg"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="Groceries" />
 
-        <!-- Date -->
+        <!-- 4. Date / Subtitle -->
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
-            android:textColor="#9E9E9E"
-            android:textSize="12sp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="4dp"
+            android:textColor="#9094A6"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tv_amount"
-            app:layout_constraintStart_toEndOf="@+id/cv_icon_bg"
+            app:layout_constraintStart_toEndOf="@+id/view_icon_bg"
             app:layout_constraintTop_toBottomOf="@+id/tv_category"
             tools:text="Today, 10:30 AM" />
 
-        <!-- Amount -->
+        <!-- 5. Amount -->
         <TextView
             android:id="@+id/tv_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
             android:textColor="@color/expense_red"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

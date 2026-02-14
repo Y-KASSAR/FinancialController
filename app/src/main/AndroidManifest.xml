@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinancialController">
         <activity
+            android:name=".Budgets"
+            android:exported="false" />
+        <activity
+            android:name=".AddReminder"
+            android:exported="false" />
+        <activity
+            android:name=".Reminders"
+            android:exported="false" />
+        <activity
+            android:name=".Categories"
+            android:exported="false" />
+        <activity
+            android:name=".AddTransaction"
+            android:exported="false" />
+        <activity
             android:name=".Dashboard"
             android:exported="false" />
         <activity
