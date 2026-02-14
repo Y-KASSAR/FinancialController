@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F8FC">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tv_title_add_bill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="New Bill Reminder"
+            android:textColor="#212121"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Title Input -->
+        <TextView
+            android:id="@+id/lbl_bill_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Bill Title"
+            android:textColor="#757575"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_add_bill" />
+
+        <EditText
+            android:id="@+id/et_bill_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="e.g. Rent, Netflix"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/lbl_bill_title" />
+
+        <!-- Amount Input -->
+        <TextView
+            android:id="@+id/lbl_bill_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Amount"
+            android:textColor="#757575"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_bill_title" />
+
+        <EditText
+            android:id="@+id/et_bill_amount"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="$0.00"
+            android:inputType="numberDecimal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/lbl_bill_amount" />
+
+        <!-- Due Date -->
+        <TextView
+            android:id="@+id/lbl_bill_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Due Date"
+            android:textColor="#757575"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_bill_amount" />
+
+        <EditText
+            android:id="@+id/et_bill_date"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_field"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="Select Date"
+            android:drawableEnd="@drawable/ic_calendar"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/lbl_bill_date" />
+
+        <!-- Reminder Options (The 3 Checkboxes) -->
+        <TextView
+            android:id="@+id/lbl_remind_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Remind me:"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_bill_date" />
+
+        <CheckBox
+            android:id="@+id/cb_week_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="1 Week Before"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl_remind_me" />
+
+        <CheckBox
+            android:id="@+id/cb_day_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 Day Before"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cb_week_before" />
+
+        <CheckBox
+            android:id="@+id/cb_on_due_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="On Due Date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cb_day_before" />
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btn_save_reminder"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/kings_blue"
+            android:text="Set Reminder"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
+            app:layout_constraintTop_toBottomOf="@id/cb_on_due_date"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

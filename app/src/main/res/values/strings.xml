@@ -8,4 +8,13 @@
     <string name="create_account">Create account</string>
     <string name="cd_logo">App logo</string>
     <string name="cd_category_icon">Category icon</string>
+
+    <string name="title_add_transaction">Add Transaction</string>
+    <string name="label_income">Income</string>
+    <string name="label_expense">Expense</string>
+    <string name="label_amount">Amount</string>
+    <string name="label_category">Category</string>
+    <string name="label_date">Date</string>
+    <string name="label_note">Note</string>
+    <string name="btn_save">Save Transaction</string>
 </resources>
