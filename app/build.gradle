@@ -4,9 +4,7 @@ plugins {
 
 android {
     namespace 'com.example.financialcontroller'
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk 36  // Changed to standard syntax (API 34 is stable, 36 is preview)
 
     defaultConfig {
         applicationId "com.example.financialcontroller"
@@ -38,4 +36,11 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.activity:activity:1.9.0'
+
+    // Chart Library
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

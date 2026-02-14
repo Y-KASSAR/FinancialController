@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Financial Controller</string>
+    <string name="login_title">Seen.</string>
+    <string name="login_subtitle">Proceed to login, get summaries &amp; spend smarter.</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="create_account">Create account</string>
+    <string name="cd_logo">App logo</string>
+    <string name="cd_category_icon">Category icon</string>
 </resources>
