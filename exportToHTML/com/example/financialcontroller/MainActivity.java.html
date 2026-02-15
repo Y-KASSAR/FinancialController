@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.java</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">financialcontroller</span><span class="s2">;</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">content</span><span class="s2">.</span><span class="s1">Intent</span><span class="s2">;</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Bundle</span><span class="s2">;</span>
+<a name="l5"><span class="ln">5    </span></a><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">Button</span><span class="s2">;</span>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">EditText</span><span class="s2">;</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">Toast</span><span class="s2">;</span>
+<a name="l8"><span class="ln">8    </span></a><span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">work</span><span class="s2">.</span><span class="s1">PeriodicWorkRequest</span><span class="s2">;</span>
+<a name="l9"><span class="ln">9    </span></a><span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">work</span><span class="s2">.</span><span class="s1">WorkManager</span><span class="s2">;</span>
+<a name="l10"><span class="ln">10   </span></a><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">concurrent</span><span class="s2">.</span><span class="s1">TimeUnit</span><span class="s2">;</span>
+<a name="l11"><span class="ln">11   </span></a><span class="s0">import </span><span class="s1">androidx</span><span class="s2">.</span><span class="s1">appcompat</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">AppCompatActivity</span><span class="s2">;</span>
+<a name="l12"><span class="ln">12   </span></a>
+<a name="l13"><span class="ln">13   </span></a><span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity </span><span class="s2">{</span>
+<a name="l14"><span class="ln">14   </span></a>
+<a name="l15"><span class="ln">15   </span></a>    <span class="s0">private </span><span class="s1">EditText etUsername</span><span class="s2">, </span><span class="s1">etPassword</span><span class="s2">;</span>
+<a name="l16"><span class="ln">16   </span></a>    <span class="s0">private </span><span class="s1">Button btnLogin</span><span class="s2">;</span>
+<a name="l17"><span class="ln">17   </span></a>
+<a name="l18"><span class="ln">18   </span></a>    <span class="s1">@Override</span>
+<a name="l19"><span class="ln">19   </span></a>    <span class="s0">protected void </span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">Bundle savedInstanceState</span><span class="s2">) {</span>
+<a name="l20"><span class="ln">20   </span></a>        <span class="s0">super</span><span class="s2">.</span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">savedInstanceState</span><span class="s2">);</span>
+<a name="l21"><span class="ln">21   </span></a>        <span class="s1">setContentView</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">activity_main</span><span class="s2">);</span>
+<a name="l22"><span class="ln">22   </span></a>
+<a name="l23"><span class="ln">23   </span></a>        <span class="s3">// 1. Initialize Views</span>
+<a name="l24"><span class="ln">24   </span></a>        <span class="s3">// Note: Ensure these IDs match your activity_main.xml</span>
+<a name="l25"><span class="ln">25   </span></a>        <span class="s1">etUsername </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">et_username</span><span class="s2">);</span>
+<a name="l26"><span class="ln">26   </span></a>        <span class="s1">etPassword </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">et_password</span><span class="s2">);</span>
+<a name="l27"><span class="ln">27   </span></a>        <span class="s1">btnLogin </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">btn_login</span><span class="s2">);</span>
+<a name="l28"><span class="ln">28   </span></a>
+<a name="l29"><span class="ln">29   </span></a>        <span class="s3">// 2. Handle Login Click</span>
+<a name="l30"><span class="ln">30   </span></a>        <span class="s1">btnLogin</span><span class="s2">.</span><span class="s1">setOnClickListener</span><span class="s2">(</span><span class="s1">v -&gt; </span><span class="s2">{</span>
+<a name="l31"><span class="ln">31   </span></a>            <span class="s1">String username </span><span class="s2">= </span><span class="s1">etUsername</span><span class="s2">.</span><span class="s1">getText</span><span class="s2">().</span><span class="s1">toString</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+<a name="l32"><span class="ln">32   </span></a>            <span class="s1">String password </span><span class="s2">= </span><span class="s1">etPassword</span><span class="s2">.</span><span class="s1">getText</span><span class="s2">().</span><span class="s1">toString</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+<a name="l33"><span class="ln">33   </span></a>
+<a name="l34"><span class="ln">34   </span></a>            <span class="s0">if </span><span class="s2">(</span><span class="s1">validateLogin</span><span class="s2">(</span><span class="s1">username</span><span class="s2">, </span><span class="s1">password</span><span class="s2">)) {</span>
+<a name="l35"><span class="ln">35   </span></a>                <span class="s3">// Login Success</span>
+<a name="l36"><span class="ln">36   </span></a>                <span class="s1">Toast</span><span class="s2">.</span><span class="s1">makeText</span><span class="s2">(</span><span class="s1">MainActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s2">, </span><span class="s4">&quot;Welcome back!&quot;</span><span class="s2">, </span><span class="s1">Toast</span><span class="s2">.</span><span class="s1">LENGTH_SHORT</span><span class="s2">).</span><span class="s1">show</span><span class="s2">();</span>
+<a name="l37"><span class="ln">37   </span></a>
+<a name="l38"><span class="ln">38   </span></a>                <span class="s3">// Navigate to Dashboard</span>
+<a name="l39"><span class="ln">39   </span></a>                <span class="s1">Intent intent </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Intent</span><span class="s2">(</span><span class="s1">MainActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s2">, <a href="DashboardActivity.java.html">DashboardActivity</a>.</span><span class="s0">class</span><span class="s2">);</span>
+<a name="l40"><span class="ln">40   </span></a>                <span class="s1">startActivity</span><span class="s2">(</span><span class="s1">intent</span><span class="s2">);</span>
+<a name="l41"><span class="ln">41   </span></a>                <span class="s1">finish</span><span class="s2">(); </span><span class="s3">// Prevent going back to login screen</span>
+<a name="l42"><span class="ln">42   </span></a>            <span class="s2">}</span>
+<a name="l43"><span class="ln">43   </span></a>        <span class="s2">});</span>
+<a name="l44"><span class="ln">44   </span></a>        <span class="s3">// Schedule the Bill Reminder Worker to run once every 24 hours</span>
+<a name="l45"><span class="ln">45   </span></a>        <span class="s1">PeriodicWorkRequest reminderRequest </span><span class="s2">= </span><span class="s0">new </span><span class="s1">PeriodicWorkRequest</span><span class="s2">.</span><span class="s1">Builder</span><span class="s2">(<a href="BillReminderWorker.java.html">BillReminderWorker</a>.</span><span class="s0">class</span><span class="s2">, </span><span class="s5">24</span><span class="s2">, </span><span class="s1">TimeUnit</span><span class="s2">.</span><span class="s1">HOURS</span><span class="s2">)</span>
+<a name="l46"><span class="ln">46   </span></a>                <span class="s2">.</span><span class="s1">build</span><span class="s2">();</span>
+<a name="l47"><span class="ln">47   </span></a>
+<a name="l48"><span class="ln">48   </span></a>        <span class="s1">WorkManager</span><span class="s2">.</span><span class="s1">getInstance</span><span class="s2">(</span><span class="s0">this</span><span class="s2">).</span><span class="s1">enqueue</span><span class="s2">(</span><span class="s1">reminderRequest</span><span class="s2">);</span>
+<a name="l49"><span class="ln">49   </span></a>    <span class="s2">}</span>
+<a name="l50"><span class="ln">50   </span></a>
+<a name="l51"><span class="ln">51   </span></a>    <span class="s0">private boolean </span><span class="s1">validateLogin</span><span class="s2">(</span><span class="s1">String username</span><span class="s2">, </span><span class="s1">String password</span><span class="s2">) {</span>
+<a name="l52"><span class="ln">52   </span></a>        <span class="s0">if </span><span class="s2">(</span><span class="s1">username</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">()) {</span>
+<a name="l53"><span class="ln">53   </span></a>            <span class="s1">etUsername</span><span class="s2">.</span><span class="s1">setError</span><span class="s2">(</span><span class="s4">&quot;Username is required&quot;</span><span class="s2">);</span>
+<a name="l54"><span class="ln">54   </span></a>            <span class="s0">return false</span><span class="s2">;</span>
+<a name="l55"><span class="ln">55   </span></a>        <span class="s2">}</span>
+<a name="l56"><span class="ln">56   </span></a>        <span class="s0">if </span><span class="s2">(</span><span class="s1">password</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">()) {</span>
+<a name="l57"><span class="ln">57   </span></a>            <span class="s1">etPassword</span><span class="s2">.</span><span class="s1">setError</span><span class="s2">(</span><span class="s4">&quot;Password is required&quot;</span><span class="s2">);</span>
+<a name="l58"><span class="ln">58   </span></a>            <span class="s0">return false</span><span class="s2">;</span>
+<a name="l59"><span class="ln">59   </span></a>        <span class="s2">}</span>
+<a name="l60"><span class="ln">60   </span></a>        <span class="s3">// For a final project, you can add a hardcoded check like:</span>
+<a name="l61"><span class="ln">61   </span></a>        <span class="s3">// if (username.equals(&quot;admin&quot;) &amp;&amp; password.equals(&quot;1234&quot;)) return true;</span>
+<a name="l62"><span class="ln">62   </span></a>
+<a name="l63"><span class="ln">63   </span></a>        <span class="s0">return true</span><span class="s2">; </span><span class="s3">// Allow any input for now</span>
+<a name="l64"><span class="ln">64   </span></a>    <span class="s2">}</span>
+<a name="l65"><span class="ln">65   </span></a><span class="s2">}</span></pre>
+</body>
+</html>
