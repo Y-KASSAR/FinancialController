@@ -15,6 +15,21 @@
     <string name="label_amount">Amount</string>
     <string name="label_category">Category</string>
     <string name="label_date">Date</string>
+    <string name="label_time">Time</string>
     <string name="label_note">Note</string>
+    <string name="label_recurring">Recurring Transaction</string>
     <string name="btn_save">Save Transaction</string>
+
+    <!-- Added Categories Array -->
+    <string-array name="categories_array">
+        <item>Groceries</item>
+        <item>Rent</item>
+        <item>Utilities</item>
+        <item>Entertainment</item>
+        <item>Transport</item>
+        <item>Health</item>
+        <item>Shopping</item>
+        <item>Salary</item>
+        <item>Other</item>
+    </string-array>
 </resources>
