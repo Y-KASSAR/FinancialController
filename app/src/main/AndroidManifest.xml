@@ -12,7 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinancialController">
         <activity
-            android:name=".Settings"
+            android:name=".SearchResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AnalysisActivity"
             android:exported="false" />
         <activity
             android:name=".SearchFilter"
@@ -30,10 +39,7 @@
             android:name=".Categories"
             android:exported="false" />
         <activity
-            android:name=".AddTransaction"
-            android:exported="false" />
-        <activity
-            android:name=".Dashboard"
+            android:name=".DashboardActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
